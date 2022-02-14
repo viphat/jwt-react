@@ -1,0 +1,49 @@
+Searching 16 files for "getCurrentUser" (case sensitive)
+
+/Users/viphat/ShareWis/demo/jwt-react/src/components/Login.js:
+   63  
+   64    useEffect(() => {
+   65:     const user = AuthService.getCurrentUser();
+   66      if (user) {
+   67        navigate('/c/profile')
+
+/Users/viphat/ShareWis/demo/jwt-react/src/components/Profile.js:
+    4  
+    5  const Profile = () => {
+    6:   const currentUser = AuthService.getCurrentUser();
+    7    const navigate = useNavigate();
+    8  
+
+/Users/viphat/ShareWis/demo/jwt-react/src/services/auth.service.js:
+   31  };
+   32  
+   33: const getCurrentUser = () => {
+   34    return JSON.parse(localStorage.getItem('user'));
+   35  };
+   ..
+   38    login,
+   39    logout,
+   40:   getCurrentUser,
+   41  };
+   42  
+
+4 matches across 3 files
+
+
+Searching 16 files for "headers: authHeader()" (case sensitive)
+
+/Users/viphat/ShareWis/demo/jwt-react/src/App.js:
+   16  
+   17    useEffect(() => {
+   18:     axios.get(API_URL + 'me', { headers: authHeader() })
+   19        .then((response) => {
+   20          if (response.data.jwt && response.data.user) {
+
+/Users/viphat/ShareWis/demo/jwt-react/src/services/auth.service.js:
+   24  const logout = () => {
+   25    return axios
+   26:     .delete(API_URL + 'sign_out', { headers: authHeader(), data: { } })
+   27      .then((response) => {
+   28        localStorage.removeItem('user');
+
+2 matches across 2 files
